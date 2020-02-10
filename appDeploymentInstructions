@@ -1,0 +1,30 @@
+commands :
+
+1) kubectl create deployment myproject --image=docker.io/kumarbavandla/go-web-hello-world:v0.1
+
+result:
+-------
+$kubectl get services
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   87m
+
+$ kubectl get deployments
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+myproject   1/1     1            1           28m
+kumar@k8node:~$
+
+2) exposing the port 
+$ kubectl expose deployment/myproject --type="NodePort" --port 8081
+service/myproject exposed
+
+Note: it exposed to a random port(32273) which is expected as I read from the internet. To expose a specific port, looks a service 
+definition file has to be prepared accordingly and apply (kubectl apply -f ..)
+
+However, I have updated the port forwarding in virtual box for this random port (32273) and I could see the message from the service.
+
+3) NOT DONE fully - dashboard deployment
+Its still ongoing.
+
+- I found some documentation as how to setup the access control for the dashboard : https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md
+- However since the dashboard is installed inside the vm, some thing more should be fixed in order to access from the host.
+
