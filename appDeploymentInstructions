@@ -22,6 +22,22 @@ definition file has to be prepared accordingly and apply (kubectl apply -f ..)
 
 However, I have updated the port forwarding in virtual box for this random port (32273) and I could see the message from the service.
 
+$ kubectl describe services/myproject
+Name:                     myproject
+Namespace:                default
+Labels:                   app=myproject
+Annotations:              <none>
+Selector:                 app=myproject
+Type:                     NodePort
+IP:                       10.96.114.86
+Port:                     <unset>  8081/TCP
+TargetPort:               8081/TCP
+NodePort:                 <unset>  32273/TCP
+Endpoints:                <none>
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
 3) NOT DONE fully - dashboard deployment
 Its still ongoing.
 
