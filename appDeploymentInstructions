@@ -38,9 +38,9 @@ Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:                   <none>
 
-3) NOT DONE fully - dashboard deployment
-Its still ongoing.
-
-- I found some documentation as how to setup the access control for the dashboard : https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md
-- However since the dashboard is installed inside the vm, some thing more should be fixed in order to access from the host.
+3) dashboard deployed using "recommended" way following the https://github.com/kubernetes/dashboard/blob/master/docs/user/installation.md
+and exposed the service via NodePort, there by to my host machine accordingly.
+Since the service is exposed over https, I tried to install the self signed certificate (https://github.com/kubernetes/dashboard/blob/master/docs/user/certificate-management.md#self-signed-certificate)
+however, I could not manage to apply them when the dashboard service is running already. 
+May be I should have setup all this before I deploy the dashboard, but I am not sure..
 
